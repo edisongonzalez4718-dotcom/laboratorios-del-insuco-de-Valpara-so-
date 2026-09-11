@@ -1,0 +1,786 @@
+/* =========================================
+   1. CONFIGURACIÓN GENERAL Y RESET
+========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f7fb;
+    color: #172033;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* =========================================
+   2. HEADER & NAVEGACIÓN
+========================================= */
+header {
+    width: 100%;
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+}
+
+.contenedor-header {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    min-height: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.marca {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: #123b72;
+}
+
+.marca img {
+    width: 60px;
+    height: 65px;
+    object-fit: contain;
+}
+
+.marca h1 {
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.marca span {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.menu, nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.menu a, nav a {
+    text-decoration: none;
+    color: #374151;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 12px 18px;
+    border-radius: 25px;
+    transition: 0.3s;
+}
+
+.menu a:hover, nav a:hover {
+    color: white;
+    background: #1167c9;
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   3. PORTADA & HERO
+========================================= */
+.portada {
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #082c61, #075fbd, #168de2);
+    position: relative;
+    overflow: hidden;
+}
+
+.portada::before {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.07);
+    top: -250px;
+    right: -100px;
+}
+
+.portada::after {
+    content: "";
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.06);
+    bottom: -250px;
+    left: -100px;
+}
+
+.portada-contenido {
+    max-width: 850px;
+    position: relative;
+    z-index: 2;
+    color: white;
+    animation: aparecer 1s ease;
+}
+
+.etiqueta {
+    display: inline-block;
+    padding: 9px 18px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+}
+
+.portada h2 {
+    font-size: clamp(42px, 6vw, 72px);
+    line-height: 1.05;
+    margin-bottom: 25px;
+}
+
+.portada h2 span {
+    color: #9ed4ff;
+}
+
+.descripcion {
+    max-width: 700px;
+    margin: auto auto 35px;
+    font-size: 19px;
+    line-height: 1.7;
+    color: #e4efff;
+}
+
+/* =========================================
+   4. CONTENIDO PRINCIPAL Y FORMULARIOS
+========================================= */
+main {
+    width: 90%;
+    max-width: 800px;
+    margin: 30px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+main h2 {
+    font-size: clamp(22px, 4vw, 32px);
+}
+
+main p {
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-wrap: break-word;
+}
+
+img {
+    display: block;
+    width: 150px;
+    max-width: 80%;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+button {
+    background: #07cc00;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background: #05a800;
+}
+
+/* =========================================
+   5. COMPONENTES: TARJETAS DE LABORATORIOS
+========================================= */
+.seccion-laboratorios {
+    max-width: 1200px;
+    margin: auto;
+    padding: 90px 20px;
+}
+
+.titulo-seccion {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.titulo-seccion p {
+    color: #1473cf;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.titulo-seccion h2 {
+    font-size: 42px;
+    color: #102f55;
+    margin-bottom: 12px;
+}
+
+.titulo-seccion span {
+    color: #6b7280;
+    font-size: 17px;
+}
+
+.contenedor-tarjetas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.tarjeta {
+    background: white;
+    padding: 35px 30px;
+    border-radius: 22px;
+    text-decoration: none;
+    color: #172033;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #e7edf5;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+    transition: 0.35s;
+}
+
+.tarjeta:hover {
+    transform: translateY(-10px);
+    border-color: #2183d7;
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.12);
+}
+
+.numero {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 45px;
+    font-weight: 900;
+    color: #edf3fa;
+}
+
+.icono {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    background: #eaf4ff;
+    font-size: 35px;
+    margin-bottom: 25px;
+    position: relative;
+    z-index: 2;
+}
+
+.tarjeta h3 {
+    font-size: 23px;
+    color: #103f78;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 2;
+}
+
+.tarjeta p {
+    color: #687386;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    position: relative;
+    z-index: 2;
+}
+
+.ver {
+    color: #1473cf;
+    font-size: 14px;
+    font-weight: bold;
+    position: relative;
+    z-index: 2;
+}
+
+/* Tarjeta individual (.lab-card) */
+.lab-card {
+    width: 100%;
+    max-width: 400px;
+    background-color: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 0 auto;
+}
+
+.lab-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.lab-imagen {
+    display: block;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.lab-card h3 {
+    text-align: center;
+    color: #1e3a8a;
+    font-size: 24px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #1e3a8a;
+    padding-bottom: 10px;
+}
+
+.lab-info p {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 15px 0;
+    color: #444;
+    font-size: 15px;
+    flex-wrap: wrap;
+}
+
+.lab-info strong {
+    color: #222;
+    min-width: 75px;
+}
+
+.icon {
+    font-size: 20px;
+    width: 28px;
+    flex-shrink: 0;
+}
+
+.estado {
+    display: inline-block;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.ocupado {
+    background-color: #fee2e2;
+    color: #dc2626;
+    border: 1px solid #fca5a5;
+}
+
+/* =========================================
+   6. BOTONES Y SECCIÓN INFORMACIÓN
+========================================= */
+.boton, .btn-inicio {
+    display: inline-block;
+    padding: 16px 30px;
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 30px;
+    transition: 0.3s;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.boton:hover, .btn-inicio:hover {
+    background-color: #0056b3;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.informacion {
+    max-width: 1100px;
+    margin: 20px auto 90px;
+    padding: 55px;
+    border-radius: 28px;
+    background: linear-gradient(135deg, #0b3d78, #126cc7);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.informacion-contenido {
+    max-width: 700px;
+}
+
+.informacion-contenido > p:first-child {
+    font-size: 13px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    color: #9ed4ff;
+    margin-bottom: 12px;
+}
+
+.informacion h2 {
+    font-size: 36px;
+    margin-bottom: 18px;
+}
+
+.informacion-contenido > p:last-child {
+    font-size: 17px;
+    line-height: 1.7;
+    color: #e0efff;
+}
+
+.informacion-icono {
+    font-size: 100px;
+    opacity: 0.9;
+}
+
+/* =========================================
+   7. FOOTER
+========================================= */
+footer {
+    background: #081d38;
+    color: white;
+    padding: 45px 7% 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.footer-contenido {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-contenido h3 {
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.footer-contenido p {
+    color: #9caec4;
+    font-size: 14px;
+    margin: 0;
+}
+
+.footer-enlaces {
+    display: flex;
+    gap: 25px;
+}
+
+.footer-enlaces a {
+    color: #dbeafe;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.footer-enlaces a:hover {
+    color: white;
+}
+
+.copyright {
+    max-width: 1200px;
+    margin: 35px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #7f91a8;
+    font-size: 13px;
+}
+
+/* =========================================
+   8. ANIMACIONES
+========================================= */
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================
+   9. MEDIA QUERIES (RESPONSIVE)
+========================================= */
+
+/* Tablets (pantallas intermedias) */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .contenedor-header {
+        flex-direction: column;
+        padding: 15px 0;
+    }
+
+    .menu, nav {
+        margin-top: 10px;
+        gap: 5px;
+    }
+
+    .menu a, nav a {
+        margin: 5px 10px;
+    }
+
+    .contenedor-tarjetas {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .informacion {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .lab-card {
+        max-width: 400px;
+    }
+
+    .lab-imagen {
+        height: 200px;
+    }
+
+    main {
+        width: 85%;
+        max-width: 750px;
+    }
+}
+
+/* Celulares generales */
+@media (max-width: 600px) {
+    body {
+        padding: 0;
+    }
+
+    header {
+        padding: 15px 10px;
+    }
+
+    .contenedor-header {
+        flex-direction: column;
+        padding: 10px 0;
+    }
+
+    .marca img {
+        width: 50px;
+        height: 55px;
+    }
+
+    .marca h1 {
+        font-size: 20px;
+    }
+
+    .menu, nav {
+        flex-direction: column;
+        width: 100%;
+        gap: 5px;
+    }
+
+    .menu a, nav a {
+        width: 100%;
+        text-align: center;
+        padding: 9px 10px;
+        font-size: 13px;
+    }
+
+    .portada {
+        min-height: 520px;
+        padding: 60px 20px;
+    }
+
+    .portada h2 {
+        font-size: 42px;
+    }
+
+    .descripcion {
+        font-size: 16px;
+    }
+
+    main {
+        width: 94%;
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    main h2 {
+        font-size: 22px;
+    }
+
+    main p {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+    input, textarea {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+    }
+
+    .seccion-laboratorios {
+        padding: 65px 20px;
+    }
+
+    .titulo-seccion h2 {
+        font-size: 32px;
+    }
+
+    .contenedor-tarjetas {
+        grid-template-columns: 1fr;
+    }
+
+    .lab-card {
+        width: 100%;
+        max-width: 380px;
+        padding: 15px;
+    }
+
+    .lab-imagen {
+        height: 180px;
+        border-radius: 10px;
+        margin-bottom: 15px;
+    }
+
+    .lab-card h3 {
+        font-size: 21px;
+        margin-bottom: 15px;
+    }
+
+    .lab-info p {
+        font-size: 14px;
+        margin: 12px 0;
+    }
+
+    .icon {
+        font-size: 18px;
+        width: 25px;
+    }
+
+    .estado {
+        padding: 7px 12px;
+        font-size: 14px;
+    }
+
+    .btn-inicio, .boton {
+        width: 100%;
+        font-size: 15px;
+        padding: 12px;
+    }
+
+    .informacion {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 25px;
+    }
+
+    .informacion h2 {
+        font-size: 29px;
+    }
+
+    .informacion-icono {
+        font-size: 70px;
+        margin-top: 25px;
+    }
+
+    .footer-contenido {
+        flex-direction: column;
+        text-align: center;
+        gap: 25px;
+    }
+
+    .footer-enlaces {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+/* Celulares pequeños */
+@media (max-width: 400px) {
+
+    .lab-card {
+        padding: 12px;
+        border-radius: 12px;
+    }
+
+    .lab-imagen {
+        height: 150px;
+        border-radius: 8px;
+    }
+
+    .lab-card h3 {
+        font-size: 19px;
+    }
+
+    .lab-info p {
+        font-size: 13px;
+        gap: 5px;
+    }
+
+    .lab-info strong {
+        min-width: 65px;
+    }
+
+    main {
+        width: 96%;
+        padding: 12px;
+    }
+
+    main h2 {
+        font-size: 20px;
+    }
+
+    input, textarea {
+        font-size: 15px;
+    }
+}
+
+/* Pantallas grandes */
+@media (min-width: 1200px) {
+    .lab-card {
+        max-width: 400px;
+    }
+
+    .lab-imagen {
+        height: 220px;
+    }
+
+    header {
+        padding: 0;
+    }
+}
