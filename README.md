@@ -74,6 +74,6 @@ El sitio cuenta con accesos a:
 
 5)Desde las páginas individuales también se puede regresar al inicio.
 
-Autor: Edison González estudiante de cuarto medio
+Autor: Edison González y amaro fornez estudiante de cuarto medio
 
 Proyecto académico realizado para presentar información sobre los laboratorios de computación del Liceo INSUCO de Valparaíso.
